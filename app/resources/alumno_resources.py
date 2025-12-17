@@ -36,6 +36,17 @@ def buscar_por_id(id):
     # Usamos el Schema para un solo objeto
     return jsonify(AlumnoSchema().dump(alumno)), 200
 
+@alumno_bp.route('/alumnos/legajo/<int:nro_legajo>', methods=['GET'])
+def buscar_por_legajo(nro_legajo):
+    service = _get_alumno_service()
+    alumno = service.buscar_por_legajo(nro_legajo)
+    
+    if alumno is None:
+        return jsonify({"error": "Alumno no encontrado"}), 404
+        
+    # Usamos el Schema para un solo objeto
+    return jsonify(AlumnoSchema().dump(alumno)), 200
+
 @alumno_bp.route('/alumnos/<int:id>/pdf', methods=['GET'])
 def get_alumno_pdf(id):
     service = _get_alumno_service()
@@ -55,6 +66,3 @@ def get_alumno_pdf(id):
         return jsonify({"error": "Generación de PDF no implementada en el servicio"}), 501
     except Exception as e:
         return jsonify({"error": f"Error interno generando PDF: {str(e)}"}), 500
-
-
-
