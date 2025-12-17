@@ -26,6 +26,12 @@ class AlumnoService:
             return None 
         return alumno
     
+    def buscar_por_legajo(self, nro_legajo: int) -> Alumno
+        alumno = self.repo.buscar_por_legajo(nro_legajo)
+        if not alumno:
+            return None
+        return alumno
+    
     def buscar_todos(self) -> list[Alumno]:
         """
         Recupera todos los alumnos delegando al repositorio.
@@ -87,4 +93,6 @@ class AlumnoService:
         # Mover el puntero al inicio del buffer para que Flask pueda leerlo desde el principio
         buffer.seek(0)
         return buffer
+
+
 
