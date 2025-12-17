@@ -1,5 +1,7 @@
 # ms-alumno
-
+esto se creo para rendir el global de desarrollo del año 2025
+es una copia con algunos agregados del repositorio https://github.com/MarXon18/ms-alumno
+ese es el original, este es una copia del mismo
 ## Descripción
 El Microservisio Alumno es una API REST de gestión académica construida con **Flask**, **SQLAlchemy**, **Marshmallow** y **PostgreSQL**.
 
