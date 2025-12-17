@@ -15,6 +15,9 @@ class AlumnoRepository:
 
     def buscar_por_id(self, id: int) -> Alumno:
         return self.session.query(Alumno).filter_by(id=id).first() 
+    
+    def buscar_por_legajo(self, legajo:int) -> Alumno:
+        return self.session.query(Alumno).filter_by(nro_legajo=legajo).frist()
 
     def buscar_todos(self) -> list[Alumno]:
         return self.session.query(Alumno).all()
@@ -48,3 +51,4 @@ class AlumnoRepository:
         self.session.delete(alumno)
         self.session.commit()
         return alumno
+
